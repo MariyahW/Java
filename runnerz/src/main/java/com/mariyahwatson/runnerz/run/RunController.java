@@ -36,4 +36,15 @@ public class RunController {
         runRepo.create(run);
     }
 
+    //put
+    @PutMapping("/{id}")
+    void update(@RequestBody Run run, @PathVariable Integer id){
+        runRepo.update(run, id);
+    }
+    //delete
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable Integer id){
+        runRepo.delete(id);
+    }
+
 }

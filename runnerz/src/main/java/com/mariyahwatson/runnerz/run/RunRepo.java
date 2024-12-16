@@ -26,9 +26,17 @@ public class RunRepo {
     }
 
     //delete
-//    void
+    void delete(Integer id){
+        runs.removeIf(run -> run.id().equals(id));
+    }
 
     //put
+    void update(Run run, Integer id){
+        Optional<Run> optionalRun = findById(id);
+        if(optionalRun.isPresent()){
+            runs.set(runs.indexOf(optionalRun.get()), run);
+        }
+    }
 
     @PostConstruct
     private void init(){
