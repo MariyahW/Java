@@ -1,3 +1,4 @@
+
 package com.mariyahwatson.runnerz;
 
 import com.mariyahwatson.runnerz.run.Location;
@@ -19,12 +20,12 @@ import java.time.temporal.ChronoUnit;
 @SpringBootApplication
 public class RunnerzApplication {
 
-private static final Logger log= LoggerFactory.getLogger(RunnerzApplication.class);
+	private static final Logger log= LoggerFactory.getLogger(RunnerzApplication.class);
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(RunnerzApplication.class, args);
-		
+
 	}
 	@Bean
 	CommandLineRunner runner(){

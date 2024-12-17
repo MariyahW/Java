@@ -1,5 +1,6 @@
 package com.mariyahwatson.runnerz.run;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -14,9 +15,9 @@ public class RunController {
     private final RunRepo runRepo;
 
     public RunController(RunRepo runRepo) {
-    this.runRepo=runRepo;
-}
-@GetMapping("")
+        this.runRepo=runRepo;
+    }
+    @GetMapping("")
     public List<Run> findAll(){
         return runRepo.findAll();
     }
@@ -29,16 +30,16 @@ public class RunController {
         return run.get();
 
     }
-//post
+    //post
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    void create(@RequestBody Run run){
+    void create(@Valid @RequestBody Run run){
         runRepo.create(run);
     }
 
     //put
     @PutMapping("/{id}")
-    void update(@RequestBody Run run, @PathVariable Integer id){
+    void update(@Valid @RequestBody Run run, @PathVariable Integer id){
         runRepo.update(run, id);
     }
     //delete
